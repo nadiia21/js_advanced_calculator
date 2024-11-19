@@ -20,6 +20,9 @@ function makeCalculator() {
     },
 
     divide(numb) {
+      if (numb === 0) {
+        throw new Error('Division by zero is not allowed.');
+      }
       result /= numb;
     },
 
@@ -30,6 +33,9 @@ function makeCalculator() {
     },
 
     operate(operation, number) {
+      if (typeof operation !== 'function') {
+        throw new TypeError('Operation must be a valid function.');
+      }
       operation(number);
 
       return this;
